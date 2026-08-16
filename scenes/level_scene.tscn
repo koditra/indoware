@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cw24fxsuyd6p6"]
+
+[ext_resource type="Texture2D" uid="uid://cj3w2gvubvcbf" path="res://'.png" id="1_386oa"]
+[ext_resource type="Script" uid="uid://pik663jdmtdn" path="res://scenes/timer_screen.gd" id="1_a74lg"]
+[ext_resource type="Texture2D" uid="uid://boy7o3go2leky" path="res://chai.png" id="3_c8xsp"]
+[ext_resource type="FontFile" uid="uid://863n7umbb1lg" path="res://Peach Days.ttf" id="4_c8xsp"]
+
+[node name="LevelScreen" type="Node2D" unique_id=1993885499]
+script = ExtResource("1_a74lg")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1679255585]
+offset_right = 1210.0
+offset_bottom = 648.0
+texture = ExtResource("1_386oa")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ChaiContainer" type="HBoxContainer" parent="." unique_id=806362803]
+offset_left = 124.0
+offset_top = 68.0
+offset_right = 986.0
+offset_bottom = 293.0
+theme_override_constants/separation = -35
+
+[node name="Chai" type="TextureRect" parent="ChaiContainer" unique_id=439988464]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("3_c8xsp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Chai2" type="TextureRect" parent="ChaiContainer" unique_id=2005612059]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("3_c8xsp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Chai3" type="TextureRect" parent="ChaiContainer" unique_id=143103087]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("3_c8xsp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Chai4" type="TextureRect" parent="ChaiContainer" unique_id=113053224]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("3_c8xsp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Chai5" type="TextureRect" parent="ChaiContainer" unique_id=1940127201]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+texture = ExtResource("3_c8xsp")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Level" type="RichTextLabel" parent="." unique_id=172288696]
+offset_left = 497.0
+offset_top = 306.0
+offset_right = 682.0
+offset_bottom = 377.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_c8xsp")
+theme_override_font_sizes/normal_font_size = 42
+text = "Level "
+
+[node name="Timer" type="RichTextLabel" parent="." unique_id=660610703]
+offset_left = 536.0
+offset_top = 420.0
+offset_right = 721.0
+offset_bottom = 491.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_c8xsp")
+theme_override_font_sizes/normal_font_size = 42
+text = "0.0"

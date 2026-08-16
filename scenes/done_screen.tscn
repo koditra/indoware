@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://do1cmfkg84xlv"]
+
+[ext_resource type="Script" uid="uid://csvmbynr03eco" path="res://scenes/done_screen.gd" id="1_5lftu"]
+[ext_resource type="Texture2D" uid="uid://cj3w2gvubvcbf" path="res://'.png" id="2_1nfvb"]
+[ext_resource type="FontFile" uid="uid://d01y25lq362kd" path="res://SecretSolverRegular-ZpvzB.ttf" id="3_36e62"]
+[ext_resource type="FontFile" uid="uid://863n7umbb1lg" path="res://Peach Days.ttf" id="4_5oa2a"]
+[ext_resource type="Texture2D" uid="uid://cis07l11qhqlw" path="res://supalogo.png" id="5_b8fxs"]
+[ext_resource type="StyleBox" uid="uid://vil5u5h0n0n5" path="res://styles/buttonNormal.tres" id="6_g2an2"]
+[ext_resource type="StyleBox" uid="uid://cqp0aunh2c4rq" path="res://styles/buttonPressed.tres" id="7_0sgqg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jrtpw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jaqvx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="DoneScreen" type="Node2D" unique_id=361110897]
+script = ExtResource("1_5lftu")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1773871477]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("2_1nfvb")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="eng-title" type="RichTextLabel" parent="." unique_id=412459581]
+clip_contents = false
+offset_left = 687.0
+offset_top = 152.0
+offset_right = 1253.0
+offset_bottom = 326.0
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("3_36e62")
+theme_override_font_sizes/normal_font_size = 108
+text = "Blitz"
+
+[node name="eng-title2" type="RichTextLabel" parent="." unique_id=1754557600]
+clip_contents = false
+offset_left = 647.0
+offset_top = 372.0
+offset_right = 1928.0
+offset_bottom = 501.0
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("4_5oa2a")
+theme_override_font_sizes/normal_font_size = 28
+text = "Bharat Blitz Complete!"
+
+[node name="dev-title" type="TextureRect" parent="." unique_id=318810134]
+offset_left = 284.0
+offset_top = 122.0
+offset_right = 684.0
+offset_bottom = 264.0
+texture = ExtResource("5_b8fxs")
+
+[node name="menu" type="VBoxContainer" parent="." unique_id=1686327906]
+offset_left = 401.0
+offset_top = 312.0
+offset_right = 587.0
+offset_bottom = 466.0
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="menu" unique_id=1091665987]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1709176, 0.1709176, 0.1709176, 1)
+theme_override_fonts/font = ExtResource("4_5oa2a")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("6_g2an2")
+theme_override_styles/pressed = ExtResource("7_0sgqg")
+theme_override_styles/hover = ExtResource("6_g2an2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jrtpw")
+text = "Play Again"
+
+[node name="Quit" type="Button" parent="menu" unique_id=1864915971]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1709176, 0.1709176, 0.1709176, 1)
+theme_override_fonts/font = ExtResource("4_5oa2a")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("6_g2an2")
+theme_override_styles/pressed = ExtResource("7_0sgqg")
+theme_override_styles/hover = ExtResource("6_g2an2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jaqvx")
+text = "Quit"
+
+[node name="Score" type="RichTextLabel" parent="." unique_id=957407004]
+clip_contents = false
+offset_left = 420.0
+offset_top = 524.0
+offset_right = 959.0
+offset_bottom = 576.0
+theme_override_colors/default_color = Color(1, 0.7515, 0.29000002, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 45
+theme_override_fonts/normal_font = ExtResource("4_5oa2a")
+theme_override_font_sizes/normal_font_size = 35
+
+[connection signal="pressed" from="menu/Button" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="menu/Quit" to="." method="_on_quit_pressed"]

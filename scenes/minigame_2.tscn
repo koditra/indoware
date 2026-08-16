@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://qwsye1fq8bvl"]
+
+[ext_resource type="Script" uid="uid://ctf3dnga047pk" path="res://scenes/minigame_2.gd" id="1_6tcq3"]
+[ext_resource type="Texture2D" uid="uid://wbdxs31o1gtv" path="res://addons/images.jpeg" id="2_6co8m"]
+[ext_resource type="Texture2D" uid="uid://boy7o3go2leky" path="res://chai.png" id="4_eachr"]
+[ext_resource type="Script" uid="uid://b71e50w5ynf7v" path="res://button_1.gd" id="4_my5wa"]
+[ext_resource type="Script" uid="uid://d2a7scx7fk8sa" path="res://button_3.gd" id="6_q3ivc"]
+[ext_resource type="Script" uid="uid://wygxtibcp3fm" path="res://button_4.gd" id="7_srbim"]
+[ext_resource type="PackedScene" uid="uid://dw5bwqy8xryl4" path="res://scenes/timer_screen.tscn" id="8_6kqj5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u32kt"]
+size = Vector2(1222, 115)
+
+[node name="Minigame_2" type="Node2D" unique_id=1543372573]
+script = ExtResource("1_6tcq3")
+
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1696492847]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="ScrollingBackground" unique_id=1805006023]
+offset_left = 119.0
+offset_right = 1414.0
+offset_bottom = 681.0
+texture = ExtResource("2_6co8m")
+stretch_mode = 4
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1756580457]
+
+[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=1651496226]
+offset_left = -32.0
+offset_top = 572.0
+offset_right = 1191.0
+offset_bottom = 687.0
+color = Color(0.47058824, 1, 0.38431373, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=282151382]
+position = Vector2(580, 629.5)
+shape = SubResource("RectangleShape2D_u32kt")
+
+[node name="ThemedTimer" parent="." unique_id=1335383788 instance=ExtResource("8_6kqj5")]
+
+[node name="Button_2" type="TextureButton" parent="." unique_id=922677179]
+offset_left = 540.0
+offset_top = 365.0
+offset_right = 711.0
+offset_bottom = 539.0
+texture_normal = ExtResource("4_eachr")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("4_my5wa")
+
+[node name="Button_3" type="TextureButton" parent="." unique_id=660496707]
+offset_left = 116.0
+offset_top = 334.0
+offset_right = 287.0
+offset_bottom = 508.0
+texture_normal = ExtResource("4_eachr")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("6_q3ivc")
+
+[node name="Button_4" type="TextureButton" parent="." unique_id=2014889787]
+offset_left = 828.0
+offset_top = 229.0
+offset_right = 999.0
+offset_bottom = 403.0
+texture_normal = ExtResource("4_eachr")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("7_srbim")
+
+[node name="Button_1" type="TextureButton" parent="." unique_id=860022436]
+offset_left = 355.0
+offset_top = 101.0
+offset_right = 526.0
+offset_bottom = 275.0
+texture_normal = ExtResource("4_eachr")
+ignore_texture_size = true
+stretch_mode = 4
+script = ExtResource("4_my5wa")
+
+[connection signal="pressed" from="Button_2" to="Button_2" method="_on_pressed"]
+[connection signal="pressed" from="Button_3" to="Button_3" method="_on_pressed"]
+[connection signal="pressed" from="Button_4" to="Button_4" method="_on_pressed"]
+[connection signal="pressed" from="Button_1" to="Button_1" method="_on_pressed"]

@@ -1,0 +1,181 @@
+[gd_scene format=3 uid="uid://br2giwa02np60"]
+
+[ext_resource type="Script" uid="uid://b36yf3dur5nap" path="res://scenes/minigame_1.gd" id="1_fa05o"]
+[ext_resource type="Texture2D" uid="uid://wbdxs31o1gtv" path="res://addons/images.jpeg" id="2_j1cg4"]
+[ext_resource type="PackedScene" uid="uid://cvkihmxsmg7jp" path="res://scenes/player.tscn" id="2_og05i"]
+[ext_resource type="Script" uid="uid://cg3f843jfkw3f" path="res://scenes/chai.gd" id="3_v5ebm"]
+[ext_resource type="Texture2D" uid="uid://boy7o3go2leky" path="res://chai.png" id="5_j1cg4"]
+[ext_resource type="PackedScene" uid="uid://dw5bwqy8xryl4" path="res://scenes/timer_screen.tscn" id="6_j1cg4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2m5a4"]
+size = Vector2(1222, 115)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_og05i"]
+size = Vector2(734.5, 51)
+
+[sub_resource type="Animation" id="Animation_v5ebm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chai/Chai:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1043, 145)]
+}
+
+[sub_resource type="Animation" id="Animation_fa05o"]
+resource_name = "floating"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Chai/Chai:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1043, 145), Vector2(1043, 138)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1cg4"]
+_data = {
+&"RESET": SubResource("Animation_v5ebm"),
+&"floating": SubResource("Animation_fa05o")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fa05o"]
+size = Vector2(62, 74)
+
+[node name="Minigame_1" type="Node2D" unique_id=1181672802]
+script = ExtResource("1_fa05o")
+
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=1932843261]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="ScrollingBackground" unique_id=2078341380]
+offset_left = 104.0
+offset_top = -77.0
+offset_right = 1114.0
+offset_bottom = 853.0
+texture = ExtResource("2_j1cg4")
+stretch_mode = 4
+
+[node name="Platform1" type="StaticBody2D" parent="." unique_id=1834185645]
+
+[node name="ColorRect" type="ColorRect" parent="Platform1" unique_id=137365280]
+offset_left = -32.0
+offset_top = 572.0
+offset_right = 1191.0
+offset_bottom = 687.0
+color = Color(0.07450981, 0.6039216, 0.29803923, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=206557349]
+position = Vector2(580, 629.5)
+shape = SubResource("RectangleShape2D_2m5a4")
+
+[node name="Platform2" type="StaticBody2D" parent="." unique_id=1944887487]
+
+[node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=21580875]
+offset_left = 213.0
+offset_top = 402.0
+offset_right = 947.0
+offset_bottom = 454.0
+color = Color(0.07450981, 0.6039216, 0.29803923, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=1520263791]
+position = Vector2(579.75, 427.5)
+shape = SubResource("RectangleShape2D_og05i")
+
+[node name="Platform3" type="StaticBody2D" parent="." unique_id=1326904136]
+
+[node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=339556776]
+offset_left = 433.0
+offset_top = 241.0
+offset_right = 1167.0
+offset_bottom = 293.0
+color = Color(0.13741276, 0.60968506, 5.7756904e-07, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=1048581436]
+position = Vector2(800, 267)
+shape = SubResource("RectangleShape2D_og05i")
+
+[node name="Player" parent="." unique_id=1502501350 instance=ExtResource("2_og05i")]
+position = Vector2(195, 514)
+
+[node name="Chai" type="Node2D" parent="." unique_id=1185800571]
+script = ExtResource("3_v5ebm")
+
+[node name="Chai" type="TextureRect" parent="Chai" unique_id=381164651]
+offset_left = 1043.0
+offset_top = 145.0
+offset_right = 1131.0
+offset_bottom = 237.0
+texture = ExtResource("5_j1cg4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="animation" type="AnimationPlayer" parent="Chai" unique_id=1628473799]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+
+[node name="Area2D" type="Area2D" parent="Chai" unique_id=485079575]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chai/Area2D" unique_id=1832201887]
+position = Vector2(1088, 188)
+shape = SubResource("RectangleShape2D_fa05o")
+
+[node name="Chai2" type="Node2D" parent="." unique_id=1106575245]
+script = ExtResource("3_v5ebm")
+
+[node name="Chai" type="TextureRect" parent="Chai2" unique_id=177872833]
+offset_left = 465.0
+offset_top = 302.0
+offset_right = 553.0
+offset_bottom = 394.0
+texture = ExtResource("5_j1cg4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="animation" type="AnimationPlayer" parent="Chai2" unique_id=525232705]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+
+[node name="Area2D" type="Area2D" parent="Chai2" unique_id=1843635504]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chai2/Area2D" unique_id=1300394575]
+position = Vector2(510, 347)
+shape = SubResource("RectangleShape2D_fa05o")
+
+[node name="Chai3" type="Node2D" parent="." unique_id=1592314073]
+script = ExtResource("3_v5ebm")
+
+[node name="Chai" type="TextureRect" parent="Chai3" unique_id=911213627]
+offset_left = 721.0
+offset_top = 471.0
+offset_right = 809.0
+offset_bottom = 563.0
+texture = ExtResource("5_j1cg4")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="animation" type="AnimationPlayer" parent="Chai3" unique_id=2104914674]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+
+[node name="Area2D" type="Area2D" parent="Chai3" unique_id=1584045678]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chai3/Area2D" unique_id=886455150]
+position = Vector2(766, 515)
+shape = SubResource("RectangleShape2D_fa05o")
+
+[node name="ThemedTimer" parent="." unique_id=1335383788 instance=ExtResource("6_j1cg4")]

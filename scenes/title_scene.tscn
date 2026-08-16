@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://ci152g1d54rir"]
+
+[ext_resource type="Texture2D" uid="uid://cj3w2gvubvcbf" path="res://'.png" id="1_l5n7b"]
+[ext_resource type="Script" uid="uid://bt8pp43p8ahle" path="res://scenes/title_scene.gd" id="1_s8xmt"]
+[ext_resource type="FontFile" uid="uid://d01y25lq362kd" path="res://SecretSolverRegular-ZpvzB.ttf" id="2_s8xmt"]
+[ext_resource type="FontFile" uid="uid://863n7umbb1lg" path="res://Peach Days.ttf" id="4_ofksa"]
+[ext_resource type="Texture2D" uid="uid://cis07l11qhqlw" path="res://supalogo.png" id="4_s8xmt"]
+[ext_resource type="StyleBox" uid="uid://vil5u5h0n0n5" path="res://styles/buttonNormal.tres" id="5_1ot34"]
+[ext_resource type="StyleBox" uid="uid://cqp0aunh2c4rq" path="res://styles/buttonPressed.tres" id="6_lqobm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m5a4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="TitleScreen" type="Node2D" unique_id=1196849975]
+script = ExtResource("1_s8xmt")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1950809898]
+offset_right = 1152.0
+offset_bottom = 654.0
+texture = ExtResource("1_l5n7b")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="eng-title" type="RichTextLabel" parent="." unique_id=1011585664]
+clip_contents = false
+offset_left = 714.0
+offset_top = 139.0
+offset_right = 1280.0
+offset_bottom = 313.0
+theme_override_constants/outline_size = 40
+theme_override_fonts/normal_font = ExtResource("2_s8xmt")
+theme_override_font_sizes/normal_font_size = 108
+text = "Blitz"
+
+[node name="dev-title" type="TextureRect" parent="." unique_id=833143710]
+offset_left = 277.0
+offset_top = 107.0
+offset_right = 704.0
+offset_bottom = 260.0
+texture = ExtResource("4_s8xmt")
+stretch_mode = 4
+
+[node name="menu" type="VBoxContainer" parent="." unique_id=888301697]
+offset_left = 393.0
+offset_top = 299.0
+offset_right = 609.0
+offset_bottom = 537.0
+theme_override_constants/separation = 14
+
+[node name="Button" type="Button" parent="menu" unique_id=1022987814]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1709176, 0.1709176, 0.1709176, 1)
+theme_override_fonts/font = ExtResource("4_ofksa")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_1ot34")
+theme_override_styles/pressed = ExtResource("6_lqobm")
+theme_override_styles/hover = ExtResource("5_1ot34")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2m5a4")
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="menu" unique_id=135570372]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1709176, 0.1709176, 0.1709176, 1)
+theme_override_fonts/font = ExtResource("4_ofksa")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_1ot34")
+theme_override_styles/pressed = ExtResource("6_lqobm")
+theme_override_styles/hover = ExtResource("5_1ot34")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2m5a4")
+text = "Settings"
+
+[node name="Quit" type="Button" parent="menu" unique_id=1453906256]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1709176, 0.1709176, 0.1709176, 1)
+theme_override_fonts/font = ExtResource("4_ofksa")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("5_1ot34")
+theme_override_styles/pressed = ExtResource("6_lqobm")
+theme_override_styles/hover = ExtResource("5_1ot34")
+theme_override_styles/focus = SubResource("StyleBoxFlat_2m5a4")
+text = "Quit"
+
+[connection signal="pressed" from="menu/Button" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="menu/Quit" to="." method="_on_quit_pressed"]
